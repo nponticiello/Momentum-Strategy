@@ -37,7 +37,7 @@ for i in range(0, len(symbol_groups)):
   symbol_strings.append(','.join(symbol_groups[i]))
 
 for symbol_string in symbol_strings:
-    batch_api_call_url = f'https://sandbox.iexapis.com/stable/stock/market/batch?symbols={symbol_string},tsla&types=price,stats&token={IEX_CLOUD_API_TOKEN}'
+    batch_api_call_url = f'https://sandbox.iexapis.com/stable/stock/market/batch?symbols={symbol_string}&types=price,stats&token={IEX_CLOUD_API_TOKEN}'
     data = requests.get(batch_api_call_url).json()
     for symbol in symbol_string.split(','):
         hqm_dataframe = hqm_dataframe.append(
